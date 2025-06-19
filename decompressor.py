@@ -12,6 +12,8 @@ def decompress_file(file_path,output_file,original_file_path):
        decoded_data=decode_bitstring(final_str,tree_root)
        compressed_info,decompressed_info=write_decompressed(file_path,output_file,original_file_path,decoded_data)
        return compressed_info,decompressed_info
+
+
 def load_compressor(file_path):
        with open(file_path,'rb') as f:
               # Read freq table size
@@ -44,7 +46,6 @@ def remove_padding(bit_string):
        if padding_len>0:
               bit_string=bit_string[:-padding_len]
        return bit_string
-
 
 def decode_bitstring(bit_string, tree_root):
     decoded_bytes = bytearray()
@@ -79,13 +80,6 @@ def sha_256(file_path):
       return sha.hexdigest()
 
 
-
-def check(compressed_data,decompressed_data):
-       if compressed_data==decompressed_data:
-                     return True
-       else:
-              return False
-       
 # Get the compression stats
 def compression_stats(original_file, compressed_file):
     original_size = os.path.getsize(original_file)

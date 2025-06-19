@@ -1,7 +1,7 @@
 # Count the frequencies of the character from the file
 from collections import Counter
 import heapq
-
+import json
 # main function of compressor.py
 def compress_file(file_path,output_file):
        # main code
@@ -10,10 +10,8 @@ def compress_file(file_path,output_file):
        tree_root=build_huffman_tree(char_freq)
        assign_huffman_codes(tree_root,code='')
        encoded_format=encode_file(file_path,code_map)
-       print("encoded format",encoded_format)
+       # print("encoded format",encoded_format)
        save_compressed_file(output_file, encoded_format, char_freq)
-
-
 def count_frequencies(filepath):
        with open(filepath,'rb') as f:
               data=f.read()
@@ -42,8 +40,6 @@ def build_huffman_tree(freq):
               heapq.heappush(heap,merged_node)
        return heap[0]
 
-
-
 code_map={}
 def assign_huffman_codes(node,code):
        global code_map
@@ -54,11 +50,6 @@ def assign_huffman_codes(node,code):
               return code
        assign_huffman_codes(node.left,code+'0')
        assign_huffman_codes(node.right,code+'1')
-
-
-
-
-
 
 # encode the file using the huffman codes
 def encode_file(filepath,codes):
@@ -78,8 +69,6 @@ def encode_file(filepath,codes):
        return b
 
 
-
-import json
 def save_compressed_file(output_path, compressed_bytes, freq_table):
     # Convert frequency table to JSON string
     freq_json = json.dumps({str(k): v for k, v in freq_table.items()})
