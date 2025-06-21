@@ -25,16 +25,15 @@ A Python-based command-line tool for compressing and decompressing files and fol
 ## 📁 Project Structure
 
 HuffmanCompressor/
-│
-├── compressor.py # File compression logic
-├── decompressor.py # File decompression, SHA-256, and stats
-├── cli.py # CLI driver script
-├── folder_compress.py # Folder compression
-├── folder_decompress.py # Folder decompression
-├── testfiles/ # Sample test files
-├── Compressed/ # Output folder for compressed data
-├── Decompressed/ # Output folder for decompressed data
-└── README.md
+- compressor.py # File compression logicdecompressor.py
+- File decompression, SHA-256, and stats
+- cli.py # CLI driver script
+- folder_compress.py # Folder compression
+- folder_decompress.py # Folder decompression
+- testfiles/ # Sample test files
+- Compressed/ # Output folder for compressed data
+- Decompressed/ # Output folder for decompressed data
+- README.md
 
 ---
 
